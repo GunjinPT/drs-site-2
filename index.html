@@ -1,64 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRS F1 Team</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Orbitron',sans-serif; background:#000; color:#fff; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRS F1 Team</title>
 
-    header { text-align:center; padding:60px 20px; }
-    header img { max-width:260px; }
-    h1 { color:gold; margin-top:15px; }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-    nav {
-      display:flex; justify-content:center; gap:30px;
-      padding:15px; background:#050505;
-      border-top:1px solid #222; border-bottom:1px solid #222;
-    }
+<style>
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    nav a { color:white; text-decoration:none; position:relative; }
-    nav a::after {
-      content:""; position:absolute; width:0%; height:2px;
-      background:gold; bottom:-5px; left:0; transition:0.3s;
-    }
-    nav a:hover::after { width:100%; }
+body {
+  font-family:'Orbitron',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
 
-    section { padding:60px 20px; max-width:1100px; margin:auto; }
-    h2 { color:gold; margin-bottom:20px; }
+/* 🔴 Animated F1 background grid */
+body::before {
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:
+    linear-gradient(rgba(255,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,0,0.08) 1px, transparent 1px);
+  background-size:60px 60px;
+  animation:moveGrid 10s linear infinite;
+  z-index:-1;
+}
 
-    .grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:20px;
-    }
+@keyframes moveGrid {
+  0% {transform:translateY(0);}
+  100% {transform:translateY(60px);}
+}
 
-    .card {
-      background:#0a0a0a; border:1px solid #222; padding:20px;
-      transition:0.3s;
-    }
-    .card:hover { transform:scale(1.03); border-color:gold; }
+/* 🔥 Header */
+header {
+  text-align:center;
+  padding:70px 20px;
+}
 
-    .card img {
-      width:100%; height:150px; object-fit:cover;
-      margin-bottom:10px; border-radius:8px;
-    }
+header img {
+  max-width:260px;
+  filter:drop-shadow(0 0 20px red);
+  animation:pulse 2s infinite;
+}
 
-    .team { color:red; font-size:14px; margin-bottom:10px; }
+@keyframes pulse {
+  0%,100% {transform:scale(1);}
+  50% {transform:scale(1.05);}
+}
 
-    .skill { margin:8px 0; }
-    .bar { height:6px; background:#222; border-radius:10px; overflow:hidden; }
-    .fill { height:100%; background:linear-gradient(90deg, red, gold); }
+h1 {
+  color:gold;
+  margin-top:15px;
+  text-shadow:0 0 15px red;
+}
 
-    footer { text-align:center; padding:30px; color:#777; border-top:1px solid #222; }
-  </style>
+/* NAV F1 STYLE */
+nav {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:15px;
+  background:rgba(10,10,10,0.9);
+  border-top:1px solid red;
+  border-bottom:1px solid red;
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(10px);
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a:hover {
+  color:red;
+  transform:scale(1.1);
+}
+
+nav a::after {
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:red;
+  bottom:-5px;
+  left:0;
+  transition:0.3s;
+}
+
+nav a:hover::after {
+  width:100%;
+}
+
+/* SECTION */
+section {
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2 {
+  color:red;
+  margin-bottom:20px;
+  text-shadow:0 0 10px red;
+}
+
+/* CARDS */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:rgba(15,15,15,0.9);
+  border:1px solid #222;
+  padding:20px;
+  transition:0.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(45deg,transparent,rgba(255,0,0,0.1),transparent);
+  top:0;
+  left:-100%;
+  transition:0.5s;
+}
+
+.card:hover::before {
+  left:100%;
+}
+
+.card:hover {
+  transform:scale(1.05);
+  border-color:red;
+  box-shadow:0 0 25px rgba(255,0,0,0.3);
+}
+
+/* PILOTOS IMAGENS F1 (capacete) */
+.card img {
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  margin-bottom:10px;
+  border-radius:8px;
+  filter:contrast(1.2) brightness(0.9);
+}
+
+/* SKILLS */
+.skill {
+  margin:8px 0;
+}
+
+.bar {
+  height:6px;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.fill {
+  height:100%;
+  background:linear-gradient(90deg, red, gold);
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:30px;
+  color:#777;
+  border-top:1px solid #222;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo.png" alt="DRS Logo">
+  <img src="logo.png">
   <h1>DRS F1 TEAM</h1>
   <p>Precision. Speed. Victory.</p>
 </header>
@@ -66,97 +205,51 @@
 <nav>
   <a href="#sobre">Sobre</a>
   <a href="#pilotos">Pilotos</a>
-  <a href="#resultados">Resultados</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
 <section id="sobre">
   <h2>Sobre a Equipa</h2>
   <div class="card">
-    <p>Fundada em 2026, a DRS F1 Team compete em ligas online com foco em performance, estratégia e evolução constante.</p>
+    <p>Equipa competitiva de sim racing focada em performance e evolução constante no universo F1.</p>
   </div>
 </section>
 
 <section id="pilotos">
   <h2>Pilotos</h2>
+
   <div class="grid">
 
-<div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>GunjinPT (CEO DRS F1 Team)</h3>
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?f1,helmet,racing">
+      <h3>GunjinPT</h3>
       <p class="team">Aston Martin</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
     </div>
 
-<div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>cloudpt1998 (DIR DRS F1 Team)</h3>
+    <div class="card">
+      <img src="https://source.unsplash.com/300x200/?formula1,helmet">
+      <h3>cloudpt1998</h3>
       <p class="team">Ferrari</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:88%"></div></div></div>
     </div>
 
-
     <div class="card">
-      <img src="https://via.placeholder.com/300x150">
+      <img src="https://source.unsplash.com/300x200/?race,helmet,f1">
       <h3>TFTeacher</h3>
-      <p class="team">Visa Cash App RB</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
+      <p class="team">VCARB</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:85%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>joaquimpitmo2</h3>
-      <p class="team">Williams</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:82%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
+      <img src="https://source.unsplash.com/300x200/?racing,helmet">
       <h3>dijijay22</h3>
       <p class="team">Red Bull</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:95%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>andr3_gaspar</h3>
-      <p class="team">Mercedes-AMG Petronas</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:92%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>manueads</h3>
-      <p class="team">Alpine</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:80%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:84%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>mkultra_6767</h3>
-      <p class="team">Haas</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:78%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:80%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>MauroFPP48</h3>
-      <p class="team">McLaren</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:87%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:89%"></div></div></div>
     </div>
 
   </div>
 </section>
-
 
 <section id="contacto">
   <h2>Contacto</h2>
@@ -167,7 +260,7 @@
 </section>
 
 <footer>
-  <p>DRS F1 Team © 2026</p>
+  DRS F1 Team © 2026
 </footer>
 
 </body>
