@@ -1,3 +1,5 @@
+# DRS F1 TEAM — Código Completo
+
 ```html
 <!DOCTYPE html>
 <html lang="pt">
@@ -45,8 +47,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background:
-        url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+      background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
       opacity: 0.08;
       z-index: -1;
     }
@@ -118,14 +119,24 @@
       box-shadow: 0 0 20px gold;
     }
 
-    header img {
-      max-width: 260px;
-      filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));
+    .logo {
+      width: 180px;
+      height: 180px;
+      margin: auto;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #111, #000);
+      border: 3px solid gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: gold;
+      box-shadow: 0 0 35px rgba(255,215,0,0.4);
     }
 
     h1 {
       color: gold;
-      margin-top: 15px;
+      margin-top: 20px;
       font-size: 3rem;
       letter-spacing: 3px;
       text-shadow: 0 0 15px rgba(255,215,0,0.5);
@@ -244,20 +255,77 @@
       box-shadow: 0 0 25px rgba(255,215,0,0.2);
     }
 
-    .card img {
+    .driver-image {
       width: 100%;
-      height: 190px;
-      object-fit: cover;
-      margin-bottom: 15px;
+      height: 230px;
       border-radius: 14px;
+      margin-bottom: 15px;
       border: 2px solid #222;
-      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .card:hover img {
-      border-color: gold;
-      transform: scale(1.02);
+    .driver-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.45));
     }
+
+    .helmet {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ddd, #666);
+      position: absolute;
+      top: 25px;
+      z-index: 2;
+      border: 4px solid #111;
+    }
+
+    .helmet::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 25px;
+      background: #111;
+      border-radius: 20px;
+      top: 28px;
+      left: 11px;
+    }
+
+    .body {
+      width: 130px;
+      height: 160px;
+      border-radius: 20px 20px 10px 10px;
+      position: absolute;
+      bottom: -10px;
+      z-index: 1;
+      border: 4px solid rgba(255,255,255,0.08);
+    }
+
+    .sponsor {
+      position: absolute;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      z-index: 3;
+      top: 140px;
+    }
+
+    .aston { background: linear-gradient(180deg,#006b5e,#003d35); }
+    .ferrari { background: linear-gradient(180deg,#b30000,#5c0000); }
+    .rb { background: linear-gradient(180deg,#001f54,#000814); }
+    .williams { background: linear-gradient(180deg,#005eff,#001f54); }
+    .redbull { background: linear-gradient(180deg,#1a1a1a,#050505); }
+    .mercedes { background: linear-gradient(180deg,#00b3a4,#004d47); }
+    .alpine { background: linear-gradient(180deg,#0052cc,#001b44); }
+    .haas { background: linear-gradient(180deg,#6e6e6e,#1a1a1a); }
+    .mclaren { background: linear-gradient(180deg,#ff6a00,#662200); }
 
     .card h3 {
       margin-bottom: 10px;
@@ -323,7 +391,7 @@
 </div>
 
 <header>
-  <img src="logo.png" alt="DRS Logo">
+  <div class="logo">DRS</div>
   <h1>DRS F1 TEAM</h1>
   <p>Precision. Speed. Victory.</p>
 </header>
@@ -351,73 +419,109 @@
   <div class="grid">
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/stroll" alt="Piloto Aston Martin com capacete">
-      <h3>GunjinPT (CEO DRS F1 Team)</h3>
-      <p class="team">Aston Martin</p>
+      <div class="driver-image aston">
+        <div class="helmet"></div>
+        <div class="body aston"></div>
+        <div class="sponsor">NOVA TECH</div>
+      </div>
+      <h3>GunjinPT (CEO DRS)</h3>
+      <p class="team">Equipe Verde Racing</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/leclerc" alt="Piloto Ferrari com capacete">
-      <h3>cloudpt1998 (DIR DRS F1 Team)</h3>
-      <p class="team">Ferrari</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
+      <div class="driver-image ferrari">
+        <div class="helmet"></div>
+        <div class="body ferrari"></div>
+        <div class="sponsor">ROSSO SPEED</div>
+      </div>
+      <h3>cloudpt1998 (DIR DRS)</h3>
+      <p class="team">Scuderia Rosso Corse</p>
+      <div class="skill">Pace<div class="bar"><div class="fill" style="width:91%"></div></div></div>
+      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:86%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/tsunoda" alt="Piloto RB com capacete">
+      <div class="driver-image rb">
+        <div class="helmet"></div>
+        <div class="body rb"></div>
+        <div class="sponsor">HYPERION</div>
+      </div>
       <h3>TFTeacher</h3>
-      <p class="team">Visa Cash App RB</p>
+      <p class="team">Velocity Blue Racing</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/albon" alt="Piloto Williams com capacete">
+      <div class="driver-image williams">
+        <div class="helmet"></div>
+        <div class="body williams"></div>
+        <div class="sponsor">APEX GRID</div>
+      </div>
       <h3>joaquimpitmo2</h3>
-      <p class="team">Williams</p>
+      <p class="team">Blue Horizon GP</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:82%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:88%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/verstappen" alt="Piloto Red Bull com capacete">
+      <div class="driver-image redbull">
+        <div class="helmet"></div>
+        <div class="body redbull"></div>
+        <div class="sponsor">ENERGY X</div>
+      </div>
       <h3>dijijay22</h3>
-      <p class="team">Red Bull</p>
+      <p class="team">Crimson Energy Racing</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:95%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:90%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/russell" alt="Piloto Mercedes com capacete">
+      <div class="driver-image mercedes">
+        <div class="helmet"></div>
+        <div class="body mercedes"></div>
+        <div class="sponsor">SILVER TECH</div>
+      </div>
       <h3>andr3_gaspar</h3>
-      <p class="team">Mercedes-AMG Petronas</p>
+      <p class="team">Silver Arrow Dynamics</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:88%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:92%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/gasly" alt="Piloto Alpine com capacete">
+      <div class="driver-image alpine">
+        <div class="helmet"></div>
+        <div class="body alpine"></div>
+        <div class="sponsor">ALPINE NOVA</div>
+      </div>
       <h3>manueads</h3>
-      <p class="team">Alpine</p>
+      <p class="team">Alpine Velocity</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:80%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:84%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/ocon" alt="Piloto Haas com capacete">
+      <div class="driver-image haas">
+        <div class="helmet"></div>
+        <div class="body haas"></div>
+        <div class="sponsor">TITAN OIL</div>
+      </div>
       <h3>mkultra_6767</h3>
-      <p class="team">Haas</p>
+      <p class="team">Titan Motorsport</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:78%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:80%"></div></div></div>
     </div>
 
     <div class="card">
-      <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/norris" alt="Piloto McLaren com capacete">
+      <div class="driver-image mclaren">
+        <div class="helmet"></div>
+        <div class="body mclaren"></div>
+        <div class="sponsor">ORANGE CORE</div>
+      </div>
       <h3>MauroFPP48</h3>
-      <p class="team">McLaren</p>
+      <p class="team">Orange Apex Racing</p>
       <div class="skill">Pace<div class="bar"><div class="fill" style="width:87%"></div></div></div>
       <div class="skill">Consistência<div class="bar"><div class="fill" style="width:89%"></div></div></div>
     </div>
