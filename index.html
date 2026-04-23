@@ -12,7 +12,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Orbitron',sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 
-/* INTRO SCREEN */
+/* INTRO */
 #intro{
   position:fixed;
   inset:0;
@@ -51,55 +51,54 @@ h1{color:gold;margin-top:10px;}
   animation:fadeUp 1s ease 3.5s forwards;
 }
 
-/* DRIVER CARD */
+/* CARD */
 .driver-card{
   position:relative;
-  height:300px;
+  height:260px;
   border-radius:20px;
-  overflow:hidden;
+  padding:30px;
   display:flex;
   align-items:center;
-  padding:30px;
   transform:translateY(40px);
   opacity:0;
   animation:cardIn 0.8s ease forwards;
 }
 
-/* delay em cascata */
+/* DELAY */
 .driver-card:nth-child(1){animation-delay:3.6s;}
 .driver-card:nth-child(2){animation-delay:3.8s;}
 .driver-card:nth-child(3){animation-delay:4s;}
 .driver-card:nth-child(4){animation-delay:4.2s;}
 .driver-card:nth-child(5){animation-delay:4.4s;}
+.driver-card:nth-child(6){animation-delay:4.6s;}
+.driver-card:nth-child(7){animation-delay:4.8s;}
+.driver-card:nth-child(8){animation-delay:5s;}
+.driver-card:nth-child(9){animation-delay:5.2s;}
 
-/* BACKGROUNDS */
+/* CORES */
 .ferrari{background:linear-gradient(135deg,#7a0000,#ff0000);}
-.mercedes{background:linear-gradient(135deg,#003d3d,#00d2be);}
-.redbull{background:linear-gradient(135deg,#0a0a23,#1a1aff);}
-.mclaren{background:linear-gradient(135deg,#ff6a00,#ffae00);}
 .aston{background:linear-gradient(135deg,#003d35,#006b5e);}
+.redbull{background:linear-gradient(135deg,#0a0a23,#1a1aff);}
+.mercedes{background:linear-gradient(135deg,#003d3d,#00d2be);}
+.mclaren{background:linear-gradient(135deg,#ff6a00,#ffae00);}
+.williams{background:linear-gradient(135deg,#002f6c,#005eff);}
+.rb{background:linear-gradient(135deg,#1b1b1b,#444);}
+.alpine{background:linear-gradient(135deg,#002f87,#007bff);}
+.haas{background:linear-gradient(135deg,#555,#111);}
 
-/* TEXT */
+/* TEXTO */
 .name{font-size:32px;font-weight:900;}
 .team{font-size:18px;opacity:0.8;}
-.number{font-size:80px;font-weight:900;opacity:0.2;}
+.number{font-size:80px;font-weight:900;opacity:0.15;}
 
-.flag{margin-top:15px;width:40px;}
+.flag{margin-top:10px;width:40px;}
 
-.driver-img{
-  position:absolute;
-  right:0;
-  bottom:0;
-  height:100%;
-}
-
-/* SPONSORS */
 .sponsors{
   position:absolute;
   bottom:15px;
   left:30px;
   font-size:12px;
-  opacity:0.8;
+  opacity:0.7;
 }
 
 /* ANIMAÇÕES */
@@ -143,7 +142,6 @@ footer{
 
 <div class="grid">
 
-<!-- FERRARI -->
 <div class="driver-card ferrari">
   <div>
     <div class="name">cloudpt1998</div>
@@ -151,65 +149,86 @@ footer{
     <div class="number">16</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-
-  <img class="driver-img" src="/mnt/data/685443c1-cea5-436d-bad0-b86d9a1bdd4c.png">
-
-  <div class="sponsors">NOVA TECH • Veloce • CERA</div>
+  <div class="sponsors">NOVA TECH • VELOCE • CERA</div>
 </div>
 
-<!-- ASTON -->
 <div class="driver-card aston">
   <div>
     <div class="name">GunjinPT</div>
-    <div class="team">Verde Racing</div>
+    <div class="team">Aston Martin</div>
     <div class="number">7</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-
-  <img class="driver-img" src="https://source.unsplash.com/600x800/?racing,driver">
-
   <div class="sponsors">GREEN TECH • APEX • NOVA</div>
 </div>
 
-<!-- RED BULL -->
+<div class="driver-card rb">
+  <div>
+    <div class="name">TFTeacher</div>
+    <div class="team">RB</div>
+    <div class="number">22</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+  <div class="sponsors">HYPERION • SPEED • CORE</div>
+</div>
+
+<div class="driver-card williams">
+  <div>
+    <div class="name">joaquimpitmo2</div>
+    <div class="team">Williams</div>
+    <div class="number">2</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+  <div class="sponsors">APEX GRID • BLUE TECH</div>
+</div>
+
 <div class="driver-card redbull">
   <div>
     <div class="name">dijijay22</div>
-    <div class="team">Crimson Energy</div>
+    <div class="team">Red Bull</div>
     <div class="number">1</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-
-  <img class="driver-img" src="https://source.unsplash.com/600x800/?formula1,helmet">
-
-  <div class="sponsors">ENERGY X • HYPER • BOOST</div>
+  <div class="sponsors">ENERGY X • BOOST • HYPER</div>
 </div>
 
-<!-- MERCEDES -->
 <div class="driver-card mercedes">
   <div>
     <div class="name">andr3_gaspar</div>
-    <div class="team">Silver Dynamics</div>
+    <div class="team">Mercedes</div>
     <div class="number">44</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-
-  <img class="driver-img" src="https://source.unsplash.com/600x800/?motorsport,driver">
-
   <div class="sponsors">SILVER TECH • AMG • CORE</div>
 </div>
 
-<!-- MCLAREN -->
+<div class="driver-card alpine">
+  <div>
+    <div class="name">manueads</div>
+    <div class="team">Alpine</div>
+    <div class="number">31</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+  <div class="sponsors">ALPINE NOVA • BLUE CORE</div>
+</div>
+
+<div class="driver-card haas">
+  <div>
+    <div class="name">mkultra_6767</div>
+    <div class="team">Haas</div>
+    <div class="number">20</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+  <div class="sponsors">TITAN OIL • GRID TECH</div>
+</div>
+
 <div class="driver-card mclaren">
   <div>
     <div class="name">MauroFPP48</div>
-    <div class="team">Orange Apex</div>
+    <div class="team">McLaren</div>
     <div class="number">81</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-
-  <img class="driver-img" src="https://source.unsplash.com/600x800/?racing,suit">
-
   <div class="sponsors">ORANGE CORE • SPEED • NEO</div>
 </div>
 
