@@ -1,394 +1,163 @@
-# DRS F1 TEAM — Código Completo
-
 ```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRS F1 Team</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRS F1 Team</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(255,0,0,0.15), transparent 30%),
-        radial-gradient(circle at bottom, rgba(255,215,0,0.12), transparent 35%),
-        linear-gradient(180deg, #020202 0%, #070707 50%, #000 100%);
-      color: white;
-      overflow-x: hidden;
-      position: relative;
-    }
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(180deg, #020202, #000);
+  color: white;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: -2;
-    }
+/* HEADER */
+header {
+  text-align: center;
+  padding: 70px 20px;
+}
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-      opacity: 0.08;
-      z-index: -1;
-    }
+.logo {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: gold;
+}
 
-    .lights {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: -1;
-    }
+h1 {
+  color: gold;
+  margin-top: 20px;
+  font-size: 2.8rem;
+}
 
-    .lights span {
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.18;
-      animation: pulse 8s infinite alternate;
-    }
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  background: #050505;
+}
 
-    .lights span:nth-child(1) {
-      background: red;
-      top: 5%;
-      left: 10%;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+}
 
-    .lights span:nth-child(2) {
-      background: gold;
-      bottom: 10%;
-      right: 15%;
-      animation-delay: 2s;
-    }
+nav a:hover {
+  color: gold;
+}
 
-    .lights span:nth-child(3) {
-      background: crimson;
-      top: 40%;
-      right: 35%;
-      animation-delay: 4s;
-    }
+/* SECTION */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-    @keyframes pulse {
-      from {
-        transform: scale(1);
-      }
-      to {
-        transform: scale(1.3);
-      }
-    }
+h2 {
+  color: gold;
+  margin-bottom: 25px;
+}
 
-    header {
-      text-align: center;
-      padding: 80px 20px;
-      position: relative;
-    }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
 
-    header::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 220px;
-      height: 4px;
-      background: linear-gradient(90deg, red, gold);
-      border-radius: 10px;
-      box-shadow: 0 0 20px gold;
-    }
+/* CARD */
+.card {
+  background: #111;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
 
-    .logo {
-      width: 180px;
-      height: 180px;
-      margin: auto;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #111, #000);
-      border: 3px solid gold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: gold;
-      box-shadow: 0 0 35px rgba(255,215,0,0.4);
-    }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-    h1 {
-      color: gold;
-      margin-top: 20px;
-      font-size: 3rem;
-      letter-spacing: 3px;
-      text-shadow: 0 0 15px rgba(255,215,0,0.5);
-    }
+/* DRIVER IMAGE */
+.driver-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+}
 
-    header p {
-      color: #ccc;
-      margin-top: 10px;
-      font-size: 1rem;
-      letter-spacing: 2px;
-    }
+.driver-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 18px;
-      background: rgba(5,5,5,0.85);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
+.sponsor {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  background: rgba(0,0,0,0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      position: relative;
-      transition: 0.3s;
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
+/* TEAM COLORS */
+.aston { border-left: 5px solid #006b5e; }
+.ferrari { border-left: 5px solid #b30000; }
+.rb { border-left: 5px solid #001f54; }
+.williams { border-left: 5px solid #005eff; }
+.redbull { border-left: 5px solid #111; }
+.mercedes { border-left: 5px solid #00b3a4; }
+.alpine { border-left: 5px solid #0052cc; }
+.haas { border-left: 5px solid #777; }
+.mclaren { border-left: 5px solid #ff6a00; }
 
-    nav a:hover {
-      color: gold;
-    }
+/* SKILLS */
+.skill {
+  margin: 10px 0;
+}
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background: gold;
-      bottom: -6px;
-      left: 0;
-      transition: 0.3s;
-      box-shadow: 0 0 10px gold;
-    }
+.bar {
+  height: 6px;
+  background: #222;
+  border-radius: 10px;
+}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, red, gold);
+}
 
-    section {
-      padding: 70px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      color: gold;
-      margin-bottom: 25px;
-      font-size: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      width: 60%;
-      height: 3px;
-      background: linear-gradient(90deg, red, gold);
-      left: 0;
-      bottom: -8px;
-      border-radius: 10px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(18,18,18,0.95), rgba(5,5,5,0.95));
-      border: 1px solid #222;
-      padding: 20px;
-      border-radius: 18px;
-      transition: 0.35s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(130deg, transparent, rgba(255,215,0,0.05), transparent);
-      transform: translateX(-100%);
-      transition: 0.6s;
-    }
-
-    .card:hover::before {
-      transform: translateX(100%);
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: gold;
-      box-shadow: 0 0 25px rgba(255,215,0,0.2);
-    }
-
-    .driver-image {
-      width: 100%;
-      height: 230px;
-      border-radius: 14px;
-      margin-bottom: 15px;
-      border: 2px solid #222;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .driver-image::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.45));
-    }
-
-    .helmet {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #ddd, #666);
-      position: absolute;
-      top: 25px;
-      z-index: 2;
-      border: 4px solid #111;
-    }
-
-    .helmet::after {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 25px;
-      background: #111;
-      border-radius: 20px;
-      top: 28px;
-      left: 11px;
-    }
-
-    .body {
-      width: 130px;
-      height: 160px;
-      border-radius: 20px 20px 10px 10px;
-      position: absolute;
-      bottom: -10px;
-      z-index: 1;
-      border: 4px solid rgba(255,255,255,0.08);
-    }
-
-    .sponsor {
-      position: absolute;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      z-index: 3;
-      top: 140px;
-    }
-
-    .aston { background: linear-gradient(180deg,#006b5e,#003d35); }
-    .ferrari { background: linear-gradient(180deg,#b30000,#5c0000); }
-    .rb { background: linear-gradient(180deg,#001f54,#000814); }
-    .williams { background: linear-gradient(180deg,#005eff,#001f54); }
-    .redbull { background: linear-gradient(180deg,#1a1a1a,#050505); }
-    .mercedes { background: linear-gradient(180deg,#00b3a4,#004d47); }
-    .alpine { background: linear-gradient(180deg,#0052cc,#001b44); }
-    .haas { background: linear-gradient(180deg,#6e6e6e,#1a1a1a); }
-    .mclaren { background: linear-gradient(180deg,#ff6a00,#662200); }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-
-    .team {
-      color: #ff3c3c;
-      font-size: 13px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .skill {
-      margin: 10px 0;
-      font-size: 13px;
-      color: #ccc;
-    }
-
-    .bar {
-      height: 7px;
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
-
-    .fill {
-      height: 100%;
-      background: linear-gradient(90deg, red, gold);
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255,215,0,0.5);
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px;
-      color: #777;
-      border-top: 1px solid #222;
-      margin-top: 50px;
-      background: rgba(0,0,0,0.7);
-    }
-
-    @media(max-width:768px) {
-      h1 {
-        font-size: 2.1rem;
-      }
-
-      nav {
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-    }
-  </style>
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+</style>
 </head>
-<body>
 
-<div class="lights">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+<body>
 
 <header>
   <div class="logo">DRS</div>
@@ -397,159 +166,74 @@
 </header>
 
 <nav>
-  <a href="#sobre">Sobre</a>
   <a href="#pilotos">Pilotos</a>
   <a href="#resultados">Resultados</a>
   <a href="#contacto">Contacto</a>
 </nav>
 
-<section id="sobre">
-  <h2>Sobre a Equipa</h2>
-  <div class="card">
-    <p>
-      Fundada em 2026, a DRS F1 Team compete em ligas online com foco em
-      performance, estratégia e evolução constante.
-    </p>
-  </div>
-</section>
-
 <section id="pilotos">
-  <h2>Pilotos</h2>
+<h2>Pilotos</h2>
 
-  <div class="grid">
+<div class="grid">
 
-    <div class="card">
-      <div class="driver-image aston">
-        <div class="helmet"></div>
-        <div class="body aston"></div>
-        <div class="sponsor">NOVA TECH</div>
-      </div>
-      <h3>GunjinPT (CEO DRS)</h3>
-      <p class="team">Equipe Verde Racing</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image ferrari">
-        <div class="helmet"></div>
-        <div class="body ferrari"></div>
-        <div class="sponsor">ROSSO SPEED</div>
-      </div>
-      <h3>cloudpt1998 (DIR DRS)</h3>
-      <p class="team">Scuderia Rosso Corse</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:91%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:86%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image rb">
-        <div class="helmet"></div>
-        <div class="body rb"></div>
-        <div class="sponsor">HYPERION</div>
-      </div>
-      <h3>TFTeacher</h3>
-      <p class="team">Velocity Blue Racing</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image williams">
-        <div class="helmet"></div>
-        <div class="body williams"></div>
-        <div class="sponsor">APEX GRID</div>
-      </div>
-      <h3>joaquimpitmo2</h3>
-      <p class="team">Blue Horizon GP</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:82%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image redbull">
-        <div class="helmet"></div>
-        <div class="body redbull"></div>
-        <div class="sponsor">ENERGY X</div>
-      </div>
-      <h3>dijijay22</h3>
-      <p class="team">Crimson Energy Racing</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:95%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image mercedes">
-        <div class="helmet"></div>
-        <div class="body mercedes"></div>
-        <div class="sponsor">SILVER TECH</div>
-      </div>
-      <h3>andr3_gaspar</h3>
-      <p class="team">Silver Arrow Dynamics</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:92%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image alpine">
-        <div class="helmet"></div>
-        <div class="body alpine"></div>
-        <div class="sponsor">ALPINE NOVA</div>
-      </div>
-      <h3>manueads</h3>
-      <p class="team">Alpine Velocity</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:80%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:84%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image haas">
-        <div class="helmet"></div>
-        <div class="body haas"></div>
-        <div class="sponsor">TITAN OIL</div>
-      </div>
-      <h3>mkultra_6767</h3>
-      <p class="team">Titan Motorsport</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:78%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:80%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <div class="driver-image mclaren">
-        <div class="helmet"></div>
-        <div class="body mclaren"></div>
-        <div class="sponsor">ORANGE CORE</div>
-      </div>
-      <h3>MauroFPP48</h3>
-      <p class="team">Orange Apex Racing</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:87%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:89%"></div></div></div>
-    </div>
-
+<!-- PILOTO -->
+<div class="card aston">
+  <div class="driver-image">
+    <img src="https://source.unsplash.com/400x500/?formula1,driver" />
+    <div class="sponsor">NOVA TECH</div>
   </div>
+  <h3>GunjinPT</h3>
+  <p>Equipe Verde Racing</p>
+  <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
+</div>
+
+<div class="card ferrari">
+  <div class="driver-image">
+    <img src="https://source.unsplash.com/400x500/?f1,helmet" />
+    <div class="sponsor">ROSSO SPEED</div>
+  </div>
+  <h3>cloudpt1998</h3>
+</div>
+
+<div class="card rb">
+  <div class="driver-image">
+    <img src="https://source.unsplash.com/400x500/?motorsport,driver" />
+    <div class="sponsor">HYPERION</div>
+  </div>
+  <h3>TFTeacher</h3>
+</div>
+
+<div class="card mercedes">
+  <div class="driver-image">
+    <img src="https://source.unsplash.com/400x500/?racing,driver" />
+    <div class="sponsor">SILVER TECH</div>
+  </div>
+  <h3>andr3_gaspar</h3>
+</div>
+
+<div class="card mclaren">
+  <div class="driver-image">
+    <img src="https://source.unsplash.com/400x500/?formula1,helmet" />
+    <div class="sponsor">ORANGE CORE</div>
+  </div>
+  <h3>MauroFPP48</h3>
+</div>
+
+</div>
 </section>
 
 <section id="resultados">
-  <h2>Resultados</h2>
-  <div class="card">
-    <p>🏁 Temporada em progresso...</p>
-    <br>
-    <p>• Top 5 em múltiplas corridas online</p>
-    <p>• Evolução contínua de setup e estratégia</p>
-    <p>• Objetivo: lutar por campeonatos</p>
-  </div>
+<h2>Resultados</h2>
+<p>🏁 Temporada em progresso...</p>
 </section>
 
 <section id="contacto">
-  <h2>Contacto</h2>
-  <div class="card">
-    <p>Instagram: @drs.team</p>
-    <p>Discord: em breve</p>
-  </div>
+<h2>Contacto</h2>
+<p>Instagram: @drs.team</p>
 </section>
 
 <footer>
-  <p>DRS F1 Team © 2026</p>
+<p>DRS F1 Team © 2026</p>
 </footer>
 
 </body>
