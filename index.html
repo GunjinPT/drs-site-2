@@ -1,174 +1,224 @@
+```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DRS F1 Team</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Orbitron',sans-serif; background:#000; color:#fff; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRS F1 Team</title>
 
-    header { text-align:center; padding:60px 20px; }
-    header img { max-width:260px; }
-    h1 { color:gold; margin-top:15px; }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 
-    nav {
-      display:flex; justify-content:center; gap:30px;
-      padding:15px; background:#050505;
-      border-top:1px solid #222; border-bottom:1px solid #222;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Orbitron',sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 
-    nav a { color:white; text-decoration:none; position:relative; }
-    nav a::after {
-      content:""; position:absolute; width:0%; height:2px;
-      background:gold; bottom:-5px; left:0; transition:0.3s;
-    }
-    nav a:hover::after { width:100%; }
+/* INTRO SCREEN */
+#intro{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  animation:fadeOut 1.2s ease 3s forwards;
+}
 
-    section { padding:60px 20px; max-width:1100px; margin:auto; }
-    h2 { color:gold; margin-bottom:20px; }
+.intro-text{
+  font-size:50px;
+  color:gold;
+  letter-spacing:5px;
+  animation:zoomIn 1.5s ease;
+}
 
-    .grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap:20px;
-    }
+/* HEADER */
+header{
+  text-align:center;
+  padding:60px 20px;
+  opacity:0;
+  animation:fadeUp 1s ease 3.2s forwards;
+}
 
-    .card {
-      background:#0a0a0a; border:1px solid #222; padding:20px;
-      transition:0.3s;
-    }
-    .card:hover { transform:scale(1.03); border-color:gold; }
+h1{color:gold;margin-top:10px;}
 
-    .card img {
-      width:100%; height:150px; object-fit:cover;
-      margin-bottom:10px; border-radius:8px;
-    }
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
+  gap:30px;
+  padding:40px;
+  opacity:0;
+  animation:fadeUp 1s ease 3.5s forwards;
+}
 
-    .team { color:red; font-size:14px; margin-bottom:10px; }
+/* DRIVER CARD */
+.driver-card{
+  position:relative;
+  height:300px;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  padding:30px;
+  transform:translateY(40px);
+  opacity:0;
+  animation:cardIn 0.8s ease forwards;
+}
 
-    .skill { margin:8px 0; }
-    .bar { height:6px; background:#222; border-radius:10px; overflow:hidden; }
-    .fill { height:100%; background:linear-gradient(90deg, red, gold); }
+/* delay em cascata */
+.driver-card:nth-child(1){animation-delay:3.6s;}
+.driver-card:nth-child(2){animation-delay:3.8s;}
+.driver-card:nth-child(3){animation-delay:4s;}
+.driver-card:nth-child(4){animation-delay:4.2s;}
+.driver-card:nth-child(5){animation-delay:4.4s;}
 
-    footer { text-align:center; padding:30px; color:#777; border-top:1px solid #222; }
-  </style>
+/* BACKGROUNDS */
+.ferrari{background:linear-gradient(135deg,#7a0000,#ff0000);}
+.mercedes{background:linear-gradient(135deg,#003d3d,#00d2be);}
+.redbull{background:linear-gradient(135deg,#0a0a23,#1a1aff);}
+.mclaren{background:linear-gradient(135deg,#ff6a00,#ffae00);}
+.aston{background:linear-gradient(135deg,#003d35,#006b5e);}
+
+/* TEXT */
+.name{font-size:32px;font-weight:900;}
+.team{font-size:18px;opacity:0.8;}
+.number{font-size:80px;font-weight:900;opacity:0.2;}
+
+.flag{margin-top:15px;width:40px;}
+
+.driver-img{
+  position:absolute;
+  right:0;
+  bottom:0;
+  height:100%;
+}
+
+/* SPONSORS */
+.sponsors{
+  position:absolute;
+  bottom:15px;
+  left:30px;
+  font-size:12px;
+  opacity:0.8;
+}
+
+/* ANIMAÇÕES */
+@keyframes zoomIn{
+  from{transform:scale(0.5);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+@keyframes fadeOut{
+  to{opacity:0;visibility:hidden;}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes cardIn{
+  to{opacity:1;transform:translateY(0);}
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#777;
+}
+</style>
 </head>
+
 <body>
 
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-text">DRS F1 TEAM</div>
+</div>
+
 <header>
-  <img src="logo.png" alt="DRS Logo">
   <h1>DRS F1 TEAM</h1>
   <p>Precision. Speed. Victory.</p>
 </header>
 
-<nav>
-  <a href="#sobre">Sobre</a>
-  <a href="#pilotos">Pilotos</a>
-  <a href="#resultados">Resultados</a>
-  <a href="#contacto">Contacto</a>
-</nav>
+<div class="grid">
 
-<section id="sobre">
-  <h2>Sobre a Equipa</h2>
-  <div class="card">
-    <p>Fundada em 2026, a DRS F1 Team compete em ligas online com foco em performance, estratégia e evolução constante.</p>
+<!-- FERRARI -->
+<div class="driver-card ferrari">
+  <div>
+    <div class="name">cloudpt1998</div>
+    <div class="team">Scuderia Rossa</div>
+    <div class="number">16</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-</section>
 
-<section id="pilotos">
-  <h2>Pilotos</h2>
-  <div class="grid">
+  <img class="driver-img" src="/mnt/data/685443c1-cea5-436d-bad0-b86d9a1bdd4c.png">
 
-<div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>GunjinPT (CEO DRS F1 Team)</h3>
-      <p class="team">Aston Martin</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    </div>
+  <div class="sponsors">NOVA TECH • Veloce • CERA</div>
+</div>
 
-<div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>cloudpt1998 (DIR DRS F1 Team)</h3>
-      <p class="team">Ferrari</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    </div>
-
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>TFTeacher</h3>
-      <p class="team">Visa Cash App RB</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:85%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>joaquimpitmo2</h3>
-      <p class="team">Williams</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:82%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>dijijay22</h3>
-      <p class="team">Red Bull</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:95%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>andr3_gaspar</h3>
-      <p class="team">Mercedes-AMG Petronas</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:92%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>manueads</h3>
-      <p class="team">Alpine</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:80%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:84%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>mkultra_6767</h3>
-      <p class="team">Haas</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:78%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:80%"></div></div></div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/300x150">
-      <h3>MauroFPP48</h3>
-      <p class="team">McLaren</p>
-      <div class="skill">Pace<div class="bar"><div class="fill" style="width:87%"></div></div></div>
-      <div class="skill">Consistência<div class="bar"><div class="fill" style="width:89%"></div></div></div>
-    </div>
-
+<!-- ASTON -->
+<div class="driver-card aston">
+  <div>
+    <div class="name">GunjinPT</div>
+    <div class="team">Verde Racing</div>
+    <div class="number">7</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-</section>
 
+  <img class="driver-img" src="https://source.unsplash.com/600x800/?racing,driver">
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <div class="card">
-    <p>Instagram: @drs.team</p>
-    <p>Discord: em breve</p>
+  <div class="sponsors">GREEN TECH • APEX • NOVA</div>
+</div>
+
+<!-- RED BULL -->
+<div class="driver-card redbull">
+  <div>
+    <div class="name">dijijay22</div>
+    <div class="team">Crimson Energy</div>
+    <div class="number">1</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-</section>
+
+  <img class="driver-img" src="https://source.unsplash.com/600x800/?formula1,helmet">
+
+  <div class="sponsors">ENERGY X • HYPER • BOOST</div>
+</div>
+
+<!-- MERCEDES -->
+<div class="driver-card mercedes">
+  <div>
+    <div class="name">andr3_gaspar</div>
+    <div class="team">Silver Dynamics</div>
+    <div class="number">44</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+
+  <img class="driver-img" src="https://source.unsplash.com/600x800/?motorsport,driver">
+
+  <div class="sponsors">SILVER TECH • AMG • CORE</div>
+</div>
+
+<!-- MCLAREN -->
+<div class="driver-card mclaren">
+  <div>
+    <div class="name">MauroFPP48</div>
+    <div class="team">Orange Apex</div>
+    <div class="number">81</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+
+  <img class="driver-img" src="https://source.unsplash.com/600x800/?racing,suit">
+
+  <div class="sponsors">ORANGE CORE • SPEED • NEO</div>
+</div>
+
+</div>
 
 <footer>
-  <p>DRS F1 Team © 2026</p>
+DRS F1 Team © 2026
 </footer>
 
 </body>
 </html>
+```
