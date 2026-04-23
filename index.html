@@ -12,34 +12,115 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Orbitron',sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 
-/* INTRO */
-#intro{
+/* ===================== */
+/* F1 LIGHTS INTRO */
+/* ===================== */
+#lights-intro{
   position:fixed;
   inset:0;
   background:black;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
   z-index:9999;
-  animation:fadeOut 1.2s ease 3s forwards;
 }
 
-.intro-text{
-  font-size:50px;
-  color:gold;
-  letter-spacing:5px;
-  animation:zoomIn 1.5s ease;
+.lights-box{
+  display:flex;
+  gap:15px;
 }
 
+.light{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#300;
+}
+
+/* sequência */
+.light:nth-child(1){animation:lightOn 0.4s forwards 0.5s;}
+.light:nth-child(2){animation:lightOn 0.4s forwards 1s;}
+.light:nth-child(3){animation:lightOn 0.4s forwards 1.5s;}
+.light:nth-child(4){animation:lightOn 0.4s forwards 2s;}
+.light:nth-child(5){animation:lightOn 0.4s forwards 2.5s;}
+
+.light{animation:lightsOff 0.3s forwards 3.2s;}
+
+.go-text{
+  margin-top:30px;
+  font-size:60px;
+  opacity:0;
+  animation:goShow 0.5s forwards 3.2s;
+}
+
+@keyframes lightOn{
+  to{background:red;box-shadow:0 0 20px red;}
+}
+
+@keyframes lightsOff{
+  to{background:#111;}
+}
+
+@keyframes goShow{
+  to{opacity:1;transform:scale(1.2);}
+}
+
+#lights-intro{animation:fadeOut 1s ease 4s forwards;}
+
+@keyframes fadeOut{
+  to{opacity:0;visibility:hidden;}
+}
+
+/* ===================== */
 /* HEADER */
+/* ===================== */
 header{
   text-align:center;
   padding:60px 20px;
   opacity:0;
-  animation:fadeUp 1s ease 3.2s forwards;
+  animation:fadeUp 1s ease 4.5s forwards;
 }
 
-h1{color:gold;margin-top:10px;}
+.team-logo{
+  width:120px;
+  margin-bottom:15px;
+  filter: drop-shadow(0 0 10px gold);
+}
+
+h1{color:gold;}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:15px;
+  background:#050505;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
+  opacity:0;
+  animation:fadeUp 1s ease 4.7s forwards;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  background:gold;
+  bottom:-5px;
+  left:0;
+  transition:0.3s;
+}
+
+nav a:hover::after{width:100%;}
 
 /* GRID */
 .grid{
@@ -48,32 +129,32 @@ h1{color:gold;margin-top:10px;}
   gap:30px;
   padding:40px;
   opacity:0;
-  animation:fadeUp 1s ease 3.5s forwards;
+  animation:fadeUp 1s ease 5s forwards;
 }
 
 /* CARD */
 .driver-card{
-  position:relative;
   height:260px;
   border-radius:20px;
   padding:30px;
   display:flex;
   align-items:center;
+  position:relative;
   transform:translateY(40px);
   opacity:0;
   animation:cardIn 0.8s ease forwards;
 }
 
-/* DELAY */
-.driver-card:nth-child(1){animation-delay:3.6s;}
-.driver-card:nth-child(2){animation-delay:3.8s;}
-.driver-card:nth-child(3){animation-delay:4s;}
-.driver-card:nth-child(4){animation-delay:4.2s;}
-.driver-card:nth-child(5){animation-delay:4.4s;}
-.driver-card:nth-child(6){animation-delay:4.6s;}
-.driver-card:nth-child(7){animation-delay:4.8s;}
-.driver-card:nth-child(8){animation-delay:5s;}
-.driver-card:nth-child(9){animation-delay:5.2s;}
+/* delays */
+.driver-card:nth-child(1){animation-delay:5.2s;}
+.driver-card:nth-child(2){animation-delay:5.4s;}
+.driver-card:nth-child(3){animation-delay:5.6s;}
+.driver-card:nth-child(4){animation-delay:5.8s;}
+.driver-card:nth-child(5){animation-delay:6s;}
+.driver-card:nth-child(6){animation-delay:6.2s;}
+.driver-card:nth-child(7){animation-delay:6.4s;}
+.driver-card:nth-child(8){animation-delay:6.6s;}
+.driver-card:nth-child(9){animation-delay:6.8s;}
 
 /* CORES */
 .ferrari{background:linear-gradient(135deg,#7a0000,#ff0000);}
@@ -89,8 +170,7 @@ h1{color:gold;margin-top:10px;}
 /* TEXTO */
 .name{font-size:32px;font-weight:900;}
 .team{font-size:18px;opacity:0.8;}
-.number{font-size:80px;font-weight:900;opacity:0.15;}
-
+.number{font-size:80px;opacity:0.15;}
 .flag{margin-top:10px;width:40px;}
 
 .sponsors{
@@ -101,16 +181,23 @@ h1{color:gold;margin-top:10px;}
   opacity:0.7;
 }
 
+/* CONTACTOS */
+#contactos{
+  max-width:800px;
+  margin:50px auto;
+  text-align:center;
+  opacity:0;
+  animation:fadeUp 1s ease 7s forwards;
+}
+
+.contact-links a{
+  display:block;
+  margin:10px;
+  color:gold;
+  text-decoration:none;
+}
+
 /* ANIMAÇÕES */
-@keyframes zoomIn{
-  from{transform:scale(0.5);opacity:0;}
-  to{transform:scale(1);opacity:1;}
-}
-
-@keyframes fadeOut{
-  to{opacity:0;visibility:hidden;}
-}
-
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(30px);}
   to{opacity:1;transform:translateY(0);}
@@ -130,22 +217,35 @@ footer{
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-  <div class="intro-text">DRS F1 TEAM</div>
+<!-- INTRO F1 -->
+<div id="lights-intro">
+  <div class="lights-box">
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+  </div>
+  <div class="go-text">GO</div>
 </div>
 
 <header>
+  <img src="logo.png" class="team-logo">
   <h1>DRS F1 TEAM</h1>
   <p>Precision. Speed. Victory.</p>
 </header>
 
-<div class="grid">
+<nav>
+  <a href="#pilotos">Pilotos</a>
+  <a href="#contactos">Contactos</a>
+</nav>
+
+<div class="grid" id="pilotos">
 
 <div class="driver-card ferrari">
   <div>
     <div class="name">cloudpt1998</div>
-    <div class="team">Scuderia Rossa</div>
+    <div class="team">Ferrari</div>
     <div class="number">16</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
@@ -159,7 +259,7 @@ footer{
     <div class="number">7</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">GREEN TECH • APEX • NOVA</div>
+  <div class="sponsors">GREEN TECH • APEX</div>
 </div>
 
 <div class="driver-card rb">
@@ -169,7 +269,7 @@ footer{
     <div class="number">22</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">HYPERION • SPEED • CORE</div>
+  <div class="sponsors">HYPERION • SPEED</div>
 </div>
 
 <div class="driver-card williams">
@@ -179,7 +279,7 @@ footer{
     <div class="number">2</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">APEX GRID • BLUE TECH</div>
+  <div class="sponsors">APEX GRID</div>
 </div>
 
 <div class="driver-card redbull">
@@ -189,7 +289,7 @@ footer{
     <div class="number">1</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">ENERGY X • BOOST • HYPER</div>
+  <div class="sponsors">ENERGY X</div>
 </div>
 
 <div class="driver-card mercedes">
@@ -199,7 +299,7 @@ footer{
     <div class="number">44</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">SILVER TECH • AMG • CORE</div>
+  <div class="sponsors">SILVER TECH</div>
 </div>
 
 <div class="driver-card alpine">
@@ -209,7 +309,7 @@ footer{
     <div class="number">31</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">ALPINE NOVA • BLUE CORE</div>
+  <div class="sponsors">ALPINE NOVA</div>
 </div>
 
 <div class="driver-card haas">
@@ -219,7 +319,7 @@ footer{
     <div class="number">20</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">TITAN OIL • GRID TECH</div>
+  <div class="sponsors">TITAN OIL</div>
 </div>
 
 <div class="driver-card mclaren">
@@ -229,10 +329,19 @@ footer{
     <div class="number">81</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
-  <div class="sponsors">ORANGE CORE • SPEED • NEO</div>
+  <div class="sponsors">ORANGE CORE</div>
 </div>
 
 </div>
+
+<!-- CONTACTOS -->
+<section id="contactos">
+  <h2 style="color:gold;">Contactos</h2>
+  <div class="contact-links">
+    <a href="https://instagram.com/drs.team" target="_blank">📸 Instagram</a>
+    <a href="#" target="_blank">💬 Discord (em breve)</a>
+  </div>
+</section>
 
 <footer>
 DRS F1 Team © 2026
