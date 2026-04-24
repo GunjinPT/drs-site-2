@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -31,8 +32,8 @@ body{font-family:'Orbitron',sans-serif;background:#000;color:#fff;overflow-x:hid
 }
 
 .light{
-  width:90px;
-  height:90px;
+  width:40px;
+  height:40px;
   border-radius:50%;
   background:#300;
 }
@@ -45,8 +46,14 @@ body{font-family:'Orbitron',sans-serif;background:#000;color:#fff;overflow-x:hid
 .light:nth-child(5){animation:lightOn 0.4s forwards 2.5s;}
 
 .light{animation:lightsOff 0.3s forwards 3.2s;}
+
+.go-text{
+  margin-top:30px;
+  font-size:60px;
+  opacity:0;
+  animation:goShow 0.5s forwards 3.2s;
 }
-  
+
 @keyframes lightOn{
   to{background:red;box-shadow:0 0 20px red;}
 }
@@ -225,10 +232,7 @@ footer{
 <header>
   <img src="logo.png" class="team-logo">
   <h1>DRS F1 TEAM</h1>
-  <p>DRIVERS RACING SPORT</p>
-  </div>
-</div>
-  <p>QUANDO AS LUZES APAGAM, A LUTA COMEÇA</p>
+  <p>Precision. Speed. Victory.</p>
 </header>
 
 <nav>
@@ -238,87 +242,94 @@ footer{
 
 <div class="grid" id="pilotos">
 
-<div class="driver-card aston">
-  <div>
-    <div class="name">GunjinPT</div>
-    <div class="name">CEO DRS F1 Team</div>
-    <div class="team">Aston Martin</div>
-    <div class="number">19</div>
-    <img class="flag" src="https://flagcdn.com/w20/pt.png">
-  </div>
-</div>
-  
 <div class="driver-card ferrari">
   <div>
     <div class="name">cloudpt1998</div>
-    <div class="name">CEO DRS F1 Team</div>
     <div class="team">Ferrari</div>
-    <div class="number">17</div>
+    <div class="number">16</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">NOVA TECH • VELOCE • CERA</div>
+</div>
+
+<div class="driver-card aston">
+  <div>
+    <div class="name">GunjinPT</div>
+    <div class="team">Aston Martin</div>
+    <div class="number">7</div>
+    <img class="flag" src="https://flagcdn.com/w40/pt.png">
+  </div>
+  <div class="sponsors">GREEN TECH • APEX</div>
 </div>
 
 <div class="driver-card rb">
   <div>
     <div class="name">TFTeacher</div>
     <div class="team">RB</div>
-    <div class="number">25</div>
+    <div class="number">22</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">HYPERION • SPEED</div>
 </div>
 
 <div class="driver-card williams">
   <div>
     <div class="name">joaquimpitmo2</div>
     <div class="team">Williams</div>
-    <div class="number">94</div>
+    <div class="number">2</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">APEX GRID</div>
 </div>
 
 <div class="driver-card redbull">
   <div>
     <div class="name">dijijay22</div>
     <div class="team">Red Bull</div>
-    <div class="number">22</div>
+    <div class="number">1</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">ENERGY X</div>
 </div>
 
 <div class="driver-card mercedes">
   <div>
     <div class="name">andr3_gaspar</div>
     <div class="team">Mercedes</div>
-    <div class="number">41</div>
+    <div class="number">44</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">SILVER TECH</div>
 </div>
 
 <div class="driver-card alpine">
   <div>
     <div class="name">manueads</div>
     <div class="team">Alpine</div>
-    <div class="number">87</div>
+    <div class="number">31</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">ALPINE NOVA</div>
 </div>
 
 <div class="driver-card haas">
   <div>
     <div class="name">mkultra_6767</div>
     <div class="team">Haas</div>
-    <div class="number">99</div>
+    <div class="number">20</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">TITAN OIL</div>
 </div>
 
 <div class="driver-card mclaren">
   <div>
     <div class="name">MauroFPP48</div>
     <div class="team">McLaren</div>
-    <div class="number">48</div>
+    <div class="number">81</div>
     <img class="flag" src="https://flagcdn.com/w40/pt.png">
   </div>
+  <div class="sponsors">ORANGE CORE</div>
 </div>
 
 </div>
@@ -327,8 +338,8 @@ footer{
 <section id="contactos">
   <h2 style="color:gold;">Contactos</h2>
   <div class="contact-links">
-    <a href="https://instagram.com/drs.team" target="_blank">📸 Instagram (Em Breve)</a>
-    <a href="#" target="_blank">💬 Discord (Em Breve)</a>
+    <a href="https://instagram.com/drs.team" target="_blank">📸 Instagram</a>
+    <a href="#" target="_blank">💬 Discord (em breve)</a>
   </div>
 </section>
 
